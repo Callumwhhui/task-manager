@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+// const cors = require('cors')
+// const routes = require('./routes/api/tasks')
+
 
 // Always require and configure near the top 
 require('dotenv').config();
@@ -14,6 +17,8 @@ const app = express();
    
 app.use(logger('dev'));
 app.use(express.json());
+// app.use(cors());
+// app.use(routes)
 
 
  // Configure both serve-favicon & static middleware
@@ -28,6 +33,7 @@ app.use(require('./config/checkToken'))
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/tasks', require('./routes/api/tasks'))
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
