@@ -33,11 +33,19 @@ function deleteTask(req,res) {
     .catch((err) => console.log(err))
 }
 
-function updateTask(req,res) {
-    const {_id, text} = req.body;
-
-    TaskModel
-    .findByIdAndUpdate(id, text)
-    .then(()=> res.set(201).send('Updated Successfully...'))
-    .catch((err) => console.log(err))
-}
+async function updateTask(req, res) {
+    const { title, dueDate } = req.body;
+    const taskId = req.params.id; // Get the task ID from the request params
+  
+    try {
+      const updatedTask = await TaskModel.findByIdAndUpdate(
+        taskId,
+        { title, dueDate }, // Update fields as needed
+        { new: true } // Return the updated task
+      );
+      res.status(200).json(updatedTask);
+    } catch (err) {
+      console.error('Error updating task:', err);
+      res.status(500).json({ message: 'Error updating task' });
+    }
+  }

@@ -19,20 +19,85 @@ export default function TasksPage() {
       }
       fetchTasks();
     }, []);
+
+    async function handleEditSubmit() {
+        try {
+          const response = await sendRequest(
+            `/api/tasks/${editTask._id}`, // Adjust the endpoint to include the task's ID
+            'PUT',
+            editTask
+          );
+          console.log('Task updated:', response);
+      
+          // Update the tasks list with the edited task
+          const updatedTasks = tasks.map((task) =>
+            task._id === editTask._id ? editTask : task
+          );
+          setTasks(updatedTasks);
+          setEditTask(null); // Clear the editable task state
+        } catch (error) {
+          console.error('Error updating task:', error);
+        }
+      }
   
     return (
-      <div className="tasks-page">
-        <h1>Task List</h1>
-        <ul>
+<div className="tasks-page">
+      <h1>Task List</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>Priority</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
           {tasks.map((task) => (
-            <li key={task._id}>
-              <p>Title: {task.title}</p>
-              <p>Due Date: {task.dueDate}</p>
-              <p>Priority: {task.priority}</p>
-            </li>
+            <tr key={task._id}>
+              <td>{task.title}</td>
+              <td>{task.dueDate}</td>
+              <td>{task.priority}</td>
+              <td>
+                <button onClick={() => setEditTask(task)}>Edit</button>
+                {/* Add other actions if needed */}
+              </td>
+            </tr>
           ))}
-        </ul>
-      </div>
-    );
-  }
+        </tbody>
+      </table>
+
+      {editTask && (
+        <div className="edit-task-form">
+            <h2>Edit Task</h2>
+            <input
+                type="text"
+                value={editTask.title}
+                onChange={(e) =>
+                setEditTask({ ...editTask, title: e.target.value })
+                }
+            />
+            <input
+                type="text"
+                value={editTask.dueDate}
+                onChange={(e) =>
+                setEditTask({ ...editTask, dueDate: e.target.value })
+                }
+            />
+            <select
+                value={editTask.priority}
+                onChange={(e) =>
+                setEditTask({ ...editTask, priority: e.target.value })
+                }
+            >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <button onClick={handleEditSubmit}>Save</button>
+        </div>
+      )}
+    </div>
+  );
+}
   
