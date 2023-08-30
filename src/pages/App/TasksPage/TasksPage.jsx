@@ -39,6 +39,20 @@ export default function TasksPage() {
           console.error('Error updating task:', error);
         }
       }
+
+      async function handleDeleteTask(taskId) {
+        try {
+          const response = await sendRequest(`/api/tasks/${taskId}`, 'DELETE');
+          console.log('Task deleted:', response);
+      
+          // Remove the task from the tasks list
+          const updatedTasks = tasks.filter((task) => task._id !== taskId);
+          setTasks(updatedTasks);
+        } catch (error) {
+          console.error('Error deleting task:', error);
+        }
+      }
+      
   
     return (
 <div className="tasks-page">
@@ -60,7 +74,7 @@ export default function TasksPage() {
               <td>{task.priority}</td>
               <td>
                 <button onClick={() => setEditTask(task)}>Edit</button>
-                {/* Add other actions if needed */}
+                <button onClick={() => handleDeleteTask(task._id)}>delete</button>
               </td>
             </tr>
           ))}
@@ -78,7 +92,7 @@ export default function TasksPage() {
                 }
             />
             <input
-                type="text"
+                type="date"
                 value={editTask.dueDate}
                 onChange={(e) =>
                 setEditTask({ ...editTask, dueDate: e.target.value })

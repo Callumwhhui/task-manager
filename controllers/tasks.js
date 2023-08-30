@@ -24,14 +24,22 @@ async function saveTask(req, res) {
     }
   }
 
-function deleteTask(req,res) {
-    const {_id} = req.body;
-
-    TaskModel
-    .findByIdAndDelete(id)
-    .then(()=> res.set(201).send('Deleted Successfully...'))
-    .catch((err) => console.log(err))
-}
+  async function deleteTask(req, res) {
+    const { title, dueDate } = req.body;
+    const taskId = req.params.id; // Get the task ID from the request params
+  
+    try {
+      const updatedTask = await TaskModel.findByIdAndDelete(
+        taskId,
+        { title, dueDate }, // Update fields as needed
+        { new: true } // Return the updated task
+      );
+      res.status(200).json(updatedTask);
+    } catch (err) {
+      console.error('Error updating task:', err);
+      res.status(500).json({ message: 'Error updating task' });
+    }
+  }
 
 async function updateTask(req, res) {
     const { title, dueDate } = req.body;
