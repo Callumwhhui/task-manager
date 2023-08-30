@@ -8,15 +8,14 @@ module.exports ={
 }
 
 async function getTask(req,res) {
-    const Task = await TaskModel.find();
+    const Task = await TaskModel.find({user: req.user._id});
     res.send(Task);
 }
 
 async function saveTask(req, res) {
-    const { title, dueDate, priority } = req.body;
   
     try {
-      const newTask = await TaskModel.create({ title, dueDate, priority });
+      const newTask = await TaskModel.create({...req.body, user: req.user._id});
       res.status(201).json({ message: 'Task added successfully', task: newTask });
     } catch (err) {
       console.error(err);
