@@ -1,9 +1,11 @@
 import React from 'react'
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import sendRequest from '../../utilities/send-request';
 import './NewTaskForm.css'
 
 export default function NewTaskForm() {
+    const navigate = useNavigate();
     const [newTask, setNewTask] = useState({
         title: '',
         dueDate: '',
@@ -29,6 +31,8 @@ export default function NewTaskForm() {
               dueDate: '',
               priority: '',
             });
+
+            navigate('/tasks')
           } catch (error) {
             setError('Error adding task. Please try again.');
             console.error('Error adding task:', error);

@@ -34,7 +34,7 @@ export default function TasksPage() {
             task._id === editTask._id ? editTask : task
           );
           setTasks(updatedTasks);
-          setEditTask(null); // Clear the editable task state
+          setEditTask(null); 
         } catch (error) {
           console.error('Error updating task:', error);
         }
@@ -74,7 +74,7 @@ export default function TasksPage() {
               <td>{task.priority}</td>
               <td>
                 <button onClick={() => setEditTask(task)}>Edit</button>
-                <button onClick={() => handleDeleteTask(task._id)}>delete</button>
+                <button onClick={() => handleDeleteTask(task._id)}>Complete</button>
               </td>
             </tr>
           ))}
