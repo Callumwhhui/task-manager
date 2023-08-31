@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import sendRequest from '../../utilities/send-request';
+import './NewTaskForm.css'
 
 export default function NewTaskForm() {
     const [newTask, setNewTask] = useState({
@@ -36,8 +37,7 @@ export default function NewTaskForm() {
     
 
     return (
-        <div className="container">
-        <h1>New Task Form</h1>
+    <div className="container">
         <div className="form">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -49,7 +49,7 @@ export default function NewTaskForm() {
                 onChange={handleChange}
                 
               />
-            </div>
+            </div><br />
             <div className="form-group">
               <label>Due Date:</label>
               <input
@@ -59,7 +59,7 @@ export default function NewTaskForm() {
                 onChange={handleChange}
                 
               />
-            </div>
+            </div><br />
             <div className="form-group">
               <label>Priority:</label>
               <select
@@ -67,12 +67,12 @@ export default function NewTaskForm() {
                 value={newTask.priority}
                 onChange={handleChange}
               >
-                <option value="">Select Priority</option>
+                <option value="Low">Select Priority</option>
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
               </select>
-            </div>
+            </div><br />
             <div className="form-group">
               <button type="submit">Add Task</button>
             </div>

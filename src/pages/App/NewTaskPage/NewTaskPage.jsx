@@ -1,4 +1,4 @@
-import '../App.css';
+import './NewTaskPage.css';
 import NewTaskForm from '../../../components/NewTaskForm/NewTaskForm';
 
 export default function NewOrderPage() {

@@ -1,4 +1,4 @@
-import '../App.css';
+// import '../App.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import sendRequest from '../../../utilities/send-request';
