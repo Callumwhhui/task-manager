@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   background-color: #171619;
-  height: 420px;
-  width: 200px;
+  height: 400px;
+  width: 250px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 7px 7px 10px 3px #24004628;
@@ -13,7 +13,6 @@
 }
 
 main {
-  border: solid red;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -35,6 +34,20 @@ main {
   background-color: #171717;
   box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 
+}
+select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  margin-top: 6px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
 
 button{

@@ -45,6 +45,7 @@ export default function NewTaskForm() {
         <div className="form">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
+                <h3>New Task</h3>
               <label>Title:</label>
               <input 
                 className='form-input'

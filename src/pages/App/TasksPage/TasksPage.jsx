@@ -56,7 +56,8 @@ export default function TasksPage() {
   
     return (
 <div className="tasks-page">
-      <h1>Task List</h1>
+    <div className='task-table'>
+      <h1 className='title'>Task List</h1>
       <table>
         <thead>
           <tr>
@@ -87,6 +88,7 @@ export default function TasksPage() {
           ))}
         </tbody>
       </table>
+      </div>
 
       {editTask && (
         <div className="edit-task-form">

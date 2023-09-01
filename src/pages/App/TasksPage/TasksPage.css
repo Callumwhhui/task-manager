@@ -66,3 +66,65 @@
     box-shadow: 0.1em 0.1em 0em 0 rgba(0,0,0,0.3);
     transform: rotate(45deg);
   }
+
+  table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #e8e8e8;
+  }
+
+  .task-table {
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #100f0f;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  }
+
+  .title {
+    color: #e8e8e8;
+    letter-spacing: 4px;
+  }
+
+  th {
+    background-color: #353434;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    letter-spacing: 2px;
+    
+  }
+
+  tr {
+    border-bottom: 1px solid #ddd;
+    
+  }
+  
+  td {
+    padding: 10px;
+  }
+
+  /* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+    table {
+      font-size: 14px; /* Decrease font size for smaller screens */
+    }
+  
+    th,
+    td {
+      padding: 8px; /* Reduce cell padding for smaller screens */
+    }
+  
+    /* Hide the checkbox column on smaller screens */
+    td:first-child {
+      display: none;
+    }
+    th:first-child {
+      display: none;
+    }
+  
+    /* Center-align the action buttons on smaller screens */
+    td:last-child {
+      text-align: center;
+    }
+  }

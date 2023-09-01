@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import * as userService from '../utilities/users-service'
+import './Navbar.css'
 
 export default function NavBar({user, setUser}) {
     function handleLogOut() {
@@ -8,11 +9,23 @@ export default function NavBar({user, setUser}) {
     }
 
     return (
-        <nav>
-            <Link to="/tasks"> All Tasks</Link> | &nbsp;
-            <Link to="/task/new">New Task</Link> |&nbsp;
-            <p>Welcome, {user.name}</p> | &nbsp;
-            <Link to="" onClick={handleLogOut}>LogOut</Link>
-        </nav>
+        <nav className="navbar">
+        <div className="nav-container">
+          <Link to="/tasks" className="nav-link">
+            All Tasks
+          </Link>
+          <span className="separator">|</span>
+          <Link to="/task/new" className="nav-link">
+            New Task
+          </Link>
+          <span className="separator">|</span>
+          <p className="nav-greeting">Signed in as, {user.name}</p>
+          <span className="separator">|</span>
+          <Link to="" onClick={handleLogOut} className="nav-link logout">
+            Log Out
+          </Link>
+        </div>
+      </nav>
+  
     )
 }

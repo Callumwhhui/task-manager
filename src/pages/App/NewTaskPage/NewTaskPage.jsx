@@ -3,8 +3,7 @@ import NewTaskForm from '../../../components/NewTaskForm/NewTaskForm';
 
 export default function NewOrderPage() {
     return (
-        <div>
-        <h1>NewTaskPage</h1>
+        <div><br />
         <NewTaskForm />
         </div>
     )
