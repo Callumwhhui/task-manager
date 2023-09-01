@@ -46,7 +46,8 @@ export default function NewTaskForm() {
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Title:</label>
-              <input
+              <input 
+                className='form-input'
                 type="text"
                 name="title"
                 value={newTask.title}
@@ -56,7 +57,8 @@ export default function NewTaskForm() {
             </div><br />
             <div className="form-group">
               <label>Due Date:</label>
-              <input
+              <input 
+                className='form-input'
                 type="date"
                 name="dueDate"
                 value={newTask.dueDate}

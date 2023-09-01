@@ -1,4 +1,4 @@
-// import '../App.css';
+import './TasksPage.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import sendRequest from '../../../utilities/send-request';
@@ -60,6 +60,7 @@ export default function TasksPage() {
       <table>
         <thead>
           <tr>
+            <th></th>
             <th>Title</th>
             <th>Due Date</th>
             <th>Priority</th>
@@ -69,12 +70,18 @@ export default function TasksPage() {
         <tbody>
           {tasks.map((task) => (
             <tr key={task._id}>
+              <td>
+                <label className='check-container'>
+                <input className='check-input' type="checkbox" />
+                <div className='checkmark'></div>
+                </label>
+              </td>
               <td>{task.title}</td>
               <td>{task.dueDate}</td>
               <td>{task.priority}</td>
               <td>
                 <button onClick={() => setEditTask(task)}>Edit</button>
-                <button onClick={() => handleDeleteTask(task._id)}>Complete</button>
+                <button onClick={() => handleDeleteTask(task._id)}>Remove</button>
               </td>
             </tr>
           ))}
@@ -85,6 +92,7 @@ export default function TasksPage() {
         <div className="edit-task-form">
             <h2>Edit Task</h2>
             <input
+                className='form-input' 
                 type="text"
                 value={editTask.title}
                 onChange={(e) =>
@@ -92,6 +100,7 @@ export default function TasksPage() {
                 }
             />
             <input
+                className='form-input'
                 type="date"
                 value={editTask.dueDate}
                 onChange={(e) =>

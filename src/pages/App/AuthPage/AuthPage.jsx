@@ -1,15 +1,18 @@
 import '../App.css';
 import SignUpForm from '../../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../../components/LoginForm/LoginForm';
-import {Link} from 'react-router-dom'
+import { useState } from 'react';
 
 export default function AuthPage({setUser}) {
+    const [isSignUpFormVisible, setIsSignUpFormVisible] = useState(true);
     return (
         <main>
-            <h1>AuthPage</h1>
-            <SignUpForm setUser={setUser} />
-            <br />
-            <LoginForm setUser={setUser}/>
+            <div className='form'> 
+            {isSignUpFormVisible ? <SignUpForm setUser={setUser} /> : <LoginForm setUser={setUser}/>}
+            <button onClick={() => setIsSignUpFormVisible(!isSignUpFormVisible)}>
+                {isSignUpFormVisible ? ' Login ' : ' Sign Up '}
+            </button>
+            </div>
         </main>
     )
 }

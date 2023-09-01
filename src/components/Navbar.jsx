@@ -10,7 +10,7 @@ export default function NavBar({user, setUser}) {
     return (
         <nav>
             <Link to="/tasks"> All Tasks</Link> | &nbsp;
-            <Link to="/task/new">New Task</Link>
+            <Link to="/task/new">New Task</Link> |&nbsp;
             <p>Welcome, {user.name}</p> | &nbsp;
             <Link to="" onClick={handleLogOut}>LogOut</Link>
         </nav>
