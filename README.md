@@ -13,8 +13,6 @@ A task management web application designed to help users organize their tasks, s
   
 - Task List: View all tasks in a list, sortable by priority and due date.
   
-- Task Details: Click on a task to view its details and make updates.
-  
 - Task Deletion: Easily delete tasks that are no longer needed.
   
 - User Authentication: Sign up and log in to access your tasks securely.
@@ -73,7 +71,7 @@ Have a well-scoped feature-set. Full-CRUD data operations are not required if on
 - Development period: 1 week
 - working team: Solo
 
-## Panning 
+## Planning 
 
 ### ERD
 ![Screenshot 2023-09-02 at 15 36 23](https://github.com/Callumwhhui/task-manager/assets/130695899/c1902076-d4dd-49bf-a6b3-d504308c0efe)
