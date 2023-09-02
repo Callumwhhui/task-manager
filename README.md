@@ -79,7 +79,9 @@ Have a well-scoped feature-set. Full-CRUD data operations are not required if on
 ![Screenshot 2023-09-02 at 15 36 23](https://github.com/Callumwhhui/task-manager/assets/130695899/c1902076-d4dd-49bf-a6b3-d504308c0efe)
 
 ### Wireframe 
+![Screenshot 2023-09-02 at 18 17 50](https://github.com/Callumwhhui/task-manager/assets/130695899/83f09f33-7bb9-4cdb-8487-6a83758e52c9)
 
+![Screenshot 2023-09-02 at 18 18 30](https://github.com/Callumwhhui/task-manager/assets/130695899/9955fdef-2a07-45b8-9ee3-e1f575e9263e)
 
 
 ## Build/ Code Process 
